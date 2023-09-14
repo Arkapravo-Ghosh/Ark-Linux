@@ -1,0 +1,7 @@
+NAME="Ark GNU/Linux"
+PRETTY_NAME="Ark Linux"
+ID=ark
+ID_LIKE=arch
+BUILD_ID=rolling
+ANSI_COLOR="38;2;23;147;209"
+LOGO=archlinux-logo
