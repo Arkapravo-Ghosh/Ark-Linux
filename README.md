@@ -30,6 +30,8 @@ cd Ark-Linux
 ```
 > **WARNING:** If [`./build.sh`](build.sh) is interrupted, run [findmnt(8)](https://man.archlinux.org/man/findmnt.8) to make sure there are no mount binds before deleting it - otherwise, you may lose data (e.g. an external device mounted at /run/media/user/label gets bound within arklinuxcache/x86_64/airootfs/run/media/user/label during the build process).
 
+The ISO will be located inside `arklinuxbuild` directory.
+
 ### Test ISO on QEMU
 ```bash
 ./test.sh
