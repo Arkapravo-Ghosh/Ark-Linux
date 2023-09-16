@@ -27,7 +27,9 @@ jobs:
         run: |
           mv arklinux/airootfs/etc/pacman.d/mirrorlist arklinux/airootfs/etc/pacman.d/mirrorlist.old
           reflector --verbose --protocol https --latest 5 --sort rate --save arklinux/airootfs/etc/pacman.d/mirrorlist
-          sudo mkarchiso -v -w arklinuxcache -o arklinuxbuild arklinux
+          sed -i '/^\[options\]/a XferCommand = /usr/bin/curl -C - -f --retry 5 --retry-delay 1 --retry-max-time 60 %u -o %o' arklinux/airootfs/etc/pacman.conf
+          sed -i 's/^\(ParallelDownloads = \)/#\1/' arklinux/airootfs/etc/pacman.conf
+          mkarchiso -v -w arklinuxcache -o arklinuxbuild arklinux
       - name: Upload ISO
         uses: actions/upload-artifact@v3
         with:
