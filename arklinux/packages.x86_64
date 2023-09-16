@@ -27,6 +27,7 @@ breeze-plymouth
 brltty
 btrfs-progs
 cantor
+ccache
 cervisia
 clonezilla
 cloud-init
@@ -74,7 +75,6 @@ gpm
 gptfdisk
 granatier
 grantlee-editor
-grml-zsh-config
 grub
 gwenview
 hdparm
@@ -274,7 +274,6 @@ nano
 nbd
 ndisc6
 neochat
-neofetch
 net-tools
 nfs-utils
 nilfs-utils
