@@ -4,7 +4,7 @@ on:
 
 jobs:
   build:
-    name: Build
+    name: Build Ark GNU/Linux
     runs-on: ubuntu-latest
     container:
       image: docker.io/archlinux:latest
@@ -13,7 +13,7 @@ jobs:
       - name: Install dependencies
         run: |
           pacman -Syu --noconfirm
-          pacman -S --noconfirm git base-devel archiso arch-install-scripts
+          pacman -S --noconfirm git base-devel archiso arch-install-scripts curl reflector
       - name: Setup Git
         run: |
           git config --global user.name ${{ github.repository_owner }}
@@ -25,6 +25,8 @@ jobs:
           submodules: true
       - name: Build Ark GNU/Linux
         run: |
+          mv arklinux/airootfs/etc/pacman.d/mirrorlist arklinux/airootfs/etc/pacman.d/mirrorlist.old
+          reflector --verbose --protocol https --latest 5 --sort rate --save arklinux/airootfs/etc/pacman.d/mirrorlist
           sudo mkarchiso -v -w arklinuxcache -o arklinuxbuild arklinux
       - name: Upload ISO
         uses: actions/upload-artifact@v3
