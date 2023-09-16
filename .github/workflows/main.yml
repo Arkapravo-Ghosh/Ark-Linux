@@ -10,6 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: docker.io/archlinux:latest
+      options: --privileged
     steps:
       - name: Install dependencies
         run: |
