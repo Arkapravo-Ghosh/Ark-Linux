@@ -1,0 +1,34 @@
+name: "Build Ark GNU/Linux"
+on:
+  push:
+    branches: [ "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    container:
+      image: docker.io/archlinux:latest
+    steps:
+      - name: Install dependencies
+        run: |
+          pacman -Syu --noconfirm
+          pacman -S --noconfirm git base-devel archiso arch-install-scripts
+      - name: Setup Git
+        run: |
+          git config --global user.name ${{ github.repository_owner }}
+          git config --global user.email ${{ github.repository_owner }}@users.noreply.github.com
+          git config --global pull.rebase false
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Build Ark GNU/Linux
+        run: |
+          sudo mkarchiso -v -w arklinuxcache -o arklinuxbuild arklinux
+      - name: Upload ISO
+        uses: actions/upload-artifact@v3
+        with:
+          name: arklinux-latest-unstable.iso
+          path: arklinuxbuild/arklinux-*.iso
