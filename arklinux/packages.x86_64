@@ -322,6 +322,8 @@ plasma-welcome
 plasma-workspace
 plasma-workspace-wallpapers
 plasmatube
+plymouth
+plymouth-kcm
 plymouth-kcm
 polkit-kde-agent
 powerdevil

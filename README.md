@@ -13,7 +13,7 @@ A simple and easy to use GNU/Linux distribution with KDE Plasma desktop environm
 
 ### Clone Repository
 ```bash
-git clone https://github.com/Arkapravo-Ghosh/Ark-Linux
+git clone --recurse-submodules https://github.com/Arkapravo-Ghosh/Ark-Linux
 ```
 
 ### Install Dependencies

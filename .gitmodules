@@ -1,0 +1,3 @@
+[submodule "arklinux/airootfs/usr/share/plymouth/themes/ark-breeze"]
+	path = arklinux/airootfs/usr/share/plymouth/themes/ark-breeze
+	url = https://github.com/Arkapravo-Ghosh/ark-plymouth-theme.git
