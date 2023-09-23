@@ -1,3 +1,4 @@
+![](https://img.shields.io/badge/Work%20In%20Progress-informational)
 # Ark GNU/Linux
 A simple and easy to use GNU/Linux distribution with KDE Plasma desktop environment based on Arch Linux.
 
